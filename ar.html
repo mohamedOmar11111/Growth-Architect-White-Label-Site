@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ذا فاوندري — نواة النمو متعددة الوكلاء لوكالات التسويق</title>
+<meta name="description" content="المنظومة التشغيلية التي حوّلت عجزًا شهريًا قدره 70 ألف ريال إلى مليون ريال صافي ربح خلال 12 شهرًا. متعددة العملاء، محايدة تجاه مزوّدي الذكاء الاصطناعي، ولا شيء يُرسل دون مراجعتك.">
+<meta property="og:title" content="ذا فاوندري — نواة النمو متعددة الوكلاء">
+<meta property="og:description" content="توقّف عن إعادة بناء المنظومة التشغيلية نفسها مع كل عميل جديد. مراقبة الإعلانات، تقييم العملاء المحتملين، محرك المحتوى — جاهزة ومُختبرة.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* VIBRANT PRISM v3.1 — WHITE VARIANT / RTL */
+  :root{
+    --paper:#F6F5F1; --panel:rgba(0,0,0,.028); --border:rgba(10,20,30,.10);
+    --gold:#A8841C; --neon:#00798C; --text:#14181d; --dim:#5c6672;
+    --mono:'JetBrains Mono',ui-monospace,monospace; --ar:'Cairo',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--text);font-family:var(--ar);line-height:1.85;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% -10%,rgba(0,121,140,.06),transparent),
+      radial-gradient(ellipse 50% 40% at 15% 110%,rgba(168,132,28,.06),transparent),
+      linear-gradient(rgba(10,20,30,.030) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(10,20,30,.030) 1px,transparent 1px);
+    background-size:100% 100%,100% 100%,48px 48px,48px 48px;
+    background-attachment:fixed;
+  }
+  a{color:var(--neon);text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0;position:relative}
+  h1,h2,h3{font-family:var(--ar);font-weight:900;line-height:1.4}
+  h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+  .kicker{font-family:var(--mono);color:var(--neon);font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:16px;direction:ltr;text-align:right}
+  [dir="rtl"] .kicker{text-align:start}
+  .kicker::before{content:"// "}
+  .sub{color:var(--dim);font-size:17px;max-width:660px}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+  .lat{font-family:var(--mono);direction:ltr;display:inline-block}
+
+  /* HUD frame corners */
+  .hud{position:relative}
+  .hud::before,.hud::after{content:"";position:absolute;width:14px;height:14px;pointer-events:none}
+  .hud::before{top:-1px;right:-1px;border-top:1px solid var(--neon);border-right:1px solid var(--neon)}
+  .hud::after{bottom:-1px;left:-1px;border-bottom:1px solid var(--neon);border-left:1px solid var(--neon)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(246,245,241,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:var(--mono);font-weight:800;font-size:16px;letter-spacing:.12em;color:var(--text);direction:ltr}
+  .logo b{color:var(--gold)}
+  .logo i{font-style:normal;color:var(--neon);animation:blink 1.2s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  nav ul{display:flex;gap:24px;list-style:none;font-size:13.5px;font-weight:600}
+  nav ul a{color:var(--dim)}
+  nav ul a:hover{color:var(--neon)}
+  .lang{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--dim);direction:ltr}
+  .lang a{color:var(--dim)}.lang a.on{color:var(--gold)}.lang a:hover{color:var(--neon)}
+  .btn{display:inline-block;padding:14px 30px;font-family:var(--ar);font-weight:700;font-size:14px;transition:all .18s;position:relative}
+  .btn-gold{background:var(--gold);color:#fff;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+  .btn-gold:hover{box-shadow:0 6px 30px rgba(168,132,28,.4);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--border);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--neon);color:var(--neon);box-shadow:0 0 24px rgba(0,121,140,.15)}
+  nav .btn{padding:8px 16px;font-size:12.5px}
+
+  /* hero */
+  .hero{padding:110px 0 96px;overflow:hidden}
+  .status-line{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px;direction:ltr;justify-content:flex-end}
+  .status-line b{color:var(--neon);font-weight:600}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);margin-right:7px;animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .hero h1{font-size:clamp(30px,4.8vw,52px);max-width:880px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p{margin:24px 0 38px}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  .proof-strip{margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+  .proof-strip div{background:var(--paper);padding:22px 24px}
+  .proof-strip b{display:block;font-family:var(--mono);font-size:22px;color:var(--neon);direction:ltr;text-align:start}
+  .proof-strip span{font-size:13px;color:var(--dim)}
+  .proof-strip .au b{color:var(--gold)}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:44px}
+  .card{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:28px;transition:border-color .2s,transform .2s,background .2s}
+  .card:hover{border-color:rgba(0,121,140,.45);transform:translateY(-3px);background:rgba(0,0,0,.045)}
+  .card h3{font-size:17px;margin-bottom:10px;color:var(--text)}
+  .card h3 .tag{color:var(--gold);font-size:11px;margin-inline-start:8px;font-family:var(--mono);letter-spacing:.1em}
+  .card p{font-size:14.5px;color:var(--dim)}
+  .card .idx{font-family:var(--mono);font-size:10.5px;color:var(--neon);letter-spacing:.2em;display:block;margin-bottom:14px;direction:ltr;text-align:start}
+
+  /* terminal — stays LTR, dark island on light page */
+  .term{background:#0b0f13;border:1px solid var(--border);padding:0;font-family:var(--mono);font-size:13.5px;margin-top:40px;overflow-x:auto;direction:ltr;text-align:left;color:#e2e8f0}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);font-size:11px;color:#8b93a1;letter-spacing:.12em}
+  .term-bar span{width:10px;height:10px;border-radius:50%;background:#2a2a2a}
+  .term-bar span:first-child{background:rgba(212,175,55,.6)}
+  .term-body{padding:22px}
+  .term .c{color:#4a5260}
+  .term .g{color:#D4AF37}
+  .term .n{color:#00f2ff}
+  .term div{white-space:pre;line-height:1.9}
+
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:52px}
+  .tier{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:36px 30px;display:flex;flex-direction:column;position:relative}
+  .tier.feat{border-color:rgba(168,132,28,.6);box-shadow:0 10px 60px rgba(168,132,28,.12)}
+  .tier.feat .flag{position:absolute;top:-13px;right:50%;transform:translateX(50%);background:var(--gold);color:#fff;font-size:11px;font-weight:700;padding:3px 16px;white-space:nowrap}
+  .tier h3{font-size:15px;color:var(--dim);font-weight:700}
+  .price{font-family:var(--mono);font-size:38px;font-weight:800;color:var(--text);margin:16px 0 4px;direction:ltr;text-align:start}
+  .price small{font-size:12px;color:var(--dim);font-weight:400}
+  .tier ul{list-style:none;margin:24px 0 32px;flex:1}
+  .tier li{font-size:14.5px;color:var(--text);padding:7px 24px 7px 0;position:relative}
+  .tier li::before{content:"<";position:absolute;right:0;color:var(--neon);font-family:var(--mono)}
+  .tier .btn{text-align:center}
+
+  /* lead form */
+  .lead-form{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:36px;margin-top:44px;max-width:720px}
+  .lead-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .lead-form label{display:block;font-size:13px;font-weight:700;color:var(--dim);margin:18px 0 7px}
+  .lead-form label:first-child{margin-top:0}
+  .lead-form input,.lead-form select,.lead-form textarea{
+    width:100%;background:rgba(255,255,255,.7);border:1px solid var(--border);color:var(--text);
+    font-family:var(--ar);font-size:14.5px;padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s
+  }
+  .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--neon);box-shadow:0 0 18px rgba(0,121,140,.14)}
+  .lead-form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--neon) 50%),linear-gradient(135deg,var(--neon) 50%,transparent 50%);background-position:20px 50%,14px 50%;background-size:6px 6px;background-repeat:no-repeat}
+  .lead-form textarea{resize:vertical;min-height:110px}
+  .lead-form button{margin-top:26px;border:none;cursor:pointer;width:100%}
+  @media (max-width:640px){.lead-form .row{grid-template-columns:1fr}}
+
+  /* faq */
+  details{border:1px solid var(--border);margin-top:12px;background:var(--panel);backdrop-filter:blur(20px)}
+  summary{padding:18px 22px;cursor:pointer;font-weight:700;font-size:15.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:left;color:var(--neon);font-family:var(--mono);font-size:17px}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 22px 20px;color:var(--dim);font-size:14.5px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.dot,.logo i{animation:none}}
+
+  footer{padding:44px 0;border-top:1px solid var(--border);color:var(--dim);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">THE_<b>FOUNDRY</b><i>_</i></div>
+    <ul>
+      <li><a href="#what">المنظومة</a></li>
+      <li><a href="#loops">الحلقات</a></li>
+      <li><a href="#verify">الإثبات</a></li>
+      <li><a href="#pricing">الوصول</a></li>
+      <li><a href="#lead">تواصل</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:18px">
+      <span class="lang"><a href="index.html">EN</a> / <a href="ar.html" class="on">AR</a></span>
+      <a class="btn btn-gold" href="#pricing">احصل على النواة</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-line">
+      <span><span class="dot"></span>KERNEL: <b>OPERATIONAL</b></span>
+      <span>MODE: <b>MULTI-TENANT</b></span>
+      <span>VENDOR-LOCK: <b>NONE</b></span>
+      <span>AUTO-SEND: <b>DISABLED BY CONTRACT</b></span>
+    </div>
+    <h1>توقّف عن إعادة بناء المنظومة التشغيلية نفسها <em>مع كل عميل جديد</em>.</h1>
+    <p class="sub">مراقبة الإعلانات، تقييم العملاء المحتملين، صياغة المحتوى، ضبط صوت العلامة، تتبّع المهام — «ذا فاوندري» هي هذه المنظومة كاملةً، مبنيّة ومُختبرة سلفًا. أدخل عميلك، اربط أداة الذكاء الاصطناعي التي تدفع ثمنها أصلًا، وانطلق.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#pricing">احصل على النواة</a>
+      <a class="btn btn-ghost" href="#verify">شغّل الإثبات ←</a>
+    </div>
+    <div class="proof-strip hud">
+      <div class="au"><b>−70k → +1M SAR</b><span>النتيجة الشهرية الصافية، خلال 12 شهرًا، على حساب إعلاني حقيقي واحد</span></div>
+      <div class="au"><b>+1,400%</b><span>انقلاب موثّق في النتائج — هذا النظام هو ما خلفه</span></div>
+      <div><b>5 MIN</b><span>من الاستنساخ إلى مشاهدة حلقة حقيقية تعمل. دون أي بيانات اعتماد</span></div>
+      <div><b>0 AUTO-SENDS</b><span>مبدأ الصانع/المراجع منصوص عليه تعاقديًا في كل حلقة</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<section id="why">
+  <div class="wrap rv">
+    <div class="kicker">01 / ORIGIN</div>
+    <h2>هذا ليس إطار عمل نظريًا. هذا سجلّ معركة، بعد تجريده من بيانات العملاء.</h2>
+    <p class="sub">بناه المشغّل الذي حوّل حسابًا إعلانيًا حقيقيًا من عجز شهري قدره <span class="lat">70,000 SAR</span> إلى <span class="lat">+1,000,000 SAR</span> صافي ربح خلال 12 شهرًا. «ذا فاوندري» هي المنظومة الفعلية وراء تلك النتيجة — مجرّدة من بيانات العملاء، ومغلّفة لتشغّلها وكالتك. التسويق ليس سحرًا. التسويق هندسة.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="what">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">02 / THE SYSTEM</div>
+      <h2>نواة واحدة. عملاء بلا حدود. صفر ارتهان لمزوّد.</h2>
+    </div>
+    <div class="grid">
+      <div class="card rv"><span class="idx">SYS.01</span><h3>متعددة العملاء من اليوم الأول</h3><p>بيانات اعتماد كل عميل واستراتيجيته وتاريخه تعيش في مجلد معزول خاص به. لا احتمال لتسرّب بيانات عميل إلى تشغيل عميل آخر. ملف <span class="lat">.env</span> مستقل لكل عميل، ومستثنى من Git تلقائيًا.</p></div>
+      <div class="card rv"><span class="idx">SYS.02</span><h3>غير مرهونة لمزوّد ذكاء اصطناعي واحد</h3><p><span class="lat">Claude Code</span> أو <span class="lat">Cursor</span> أو <span class="lat">ChatGPT</span> أو مفتاح API خام من Anthropic/OpenAI/Gemini دون أي وسيط — المسارات الأربعة جاهزة وموثّقة. بدّل وقتما شئت.</p></div>
+      <div class="card rv"><span class="idx">SYS.03</span><h3>أتمتة حقيقية في الأساس</h3><p>محرّك Python يدير الحالة والجدولة وسحب بيانات إعلانات Google الحيّة وتنبيهات Telegram. طبقة الذكاء الاصطناعي تتولى أعمال التقدير فقط. ما هو حتمي يبقى حتميًا.</p></div>
+      <div class="card rv"><span class="idx">SYS.04</span><h3>لا شيء يخرج دون مراجعة</h3><p>مبدأ الصانع/المراجع مدمج في عقد كل حلقة. المسوّدات تُكتب — ولا شيء يُرسل أو يُنشر أو يُعتمد تلقائيًا. أنت من يوافق على كل ما هو حقيقي.</p></div>
+      <div class="card rv"><span class="idx">SYS.05</span><h3>أكثر من 60 تعريف وكيل</h3><p>تسويق، هندسة، تصميم، منتج، اختبار، ودعم. فرقة تواصل اجتماعي كاملة: استراتيجي عابر للمنصات مع متخصصين لكل من X ولينكدإن وإنستغرام وتيك توك وريديت.</p></div>
+      <div class="card rv"><span class="idx">SYS.06</span><h3>حزمة الذكاء <span class="tag">[PREMIUM]</span></h3><p>«برومبت ماستر» (37 نمطًا قاتلًا لهدر الرصيد)، مُراجِع «جرِل مي» العدائي، محرّك «هيومانايزر» ضد ركاكة الذكاء الاصطناعي، ومعيار «كيفمان» للتواصل عالي الكفاءة.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="loops">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">03 / THE ENGINE</div>
+      <h2>سبع حلقات. ستٌّ تعمل اليوم.</h2>
+    </div>
+    <div class="grid">
+      <div class="card rv"><span class="idx">LOOP.AD-INTEL</span><h3>استخبارات الإعلانات</h3><p>مراقبة حيّة لإعلانات Google، تنبيهات احتراق الميزانية والإنفاق الصفري، وتسليم زوايا الإعلانات الرابحة إلى محرّك المحتوى تلقائيًا — بلا تكرار وباختبارات انحدار.</p></div>
+      <div class="card rv"><span class="idx">LOOP.META-ADS</span><h3>إعلانات ميتا</h3><p>نمط المراقبة والتنبيه والتسليم ذاته، لإعلانات ميتا (فيسبوك/إنستغرام).</p></div>
+      <div class="card rv"><span class="idx">LOOP.CONTENT</span><h3>محرّك المحتوى</h3><p>يحوّل نتائج استخبارات الإعلانات إلى مسوّدات موجزات محتوى، مؤسسة على قواعد صوت العلامة في ملف <span class="lat">STRATEGY.md</span> الخاص بكل عميل.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CALENDAR</span><h3>تقويم النشر</h3><p>يقرر متى وأين تُنشر الموجزات. توزيع منصات يحترم توجيهات التجنّب والتفضيل، بإيقاع متوازن لا يُغرق منصة ويُهمل أخرى. تقويم محتوى جارٍ، لا منشورات متفرقة.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CREATIVE</span><h3>الموجز الإبداعي</h3><p>يحوّل الموجز المكتمل إلى أوامر توليد صور وفيديو مهيكلة. محايد تجاه المزوّدين — مرّر الأمر عبر أي أداة توليد تستخدمها أصلًا.</p></div>
+      <div class="card rv"><span class="idx">LOOP.LEADS</span><h3>تأهيل العملاء المحتملين</h3><p>يقيّم الواردين على محاور الميزانية/النية/الصلاحية، يصوغ تواصلًا شخصيًا، ويطلق تنبيهًا فوريًا عند أي فرصة ساخنة.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CHASE</span><h3>مطاردة الرسائل <span class="tag">[CONTRACT DEFINED]</span></h3><p>فرز صندوق الوارد عبر القنوات. عقد النطاق جاهز — ابنِ وحدتك عليه بالنمط ذاته المتبع في بقية الحلقات.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="verify">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">04 / VERIFICATION</div>
+      <h2>أمر واحد يثبت النواة كاملة.</h2>
+      <p class="sub">تعمل من أول محاولة دون أي بيانات اعتماد — تأتي مع عميل تجريبي مكتمل لتشاهد إشارة حقيقية تتحول إلى مسوّدة موجز حقيقية في دقائقك الخمس الأولى. ثم شغّل اختبار الدخان ذاته الذي يشغّله CI مع كل دفعة كود.</p>
+    </div>
+    <div class="term hud rv">
+      <div class="term-bar"><span></span><span></span><span></span>&nbsp;&nbsp;FOUNDRY://KERNEL — SMOKE TEST</div>
+      <div class="term-body">
+        <div><span class="c"># 1. Initialize the brain</span></div>
+        <div><span class="g">$</span> python scripts/seed_db.py</div>
+        <div>&nbsp;</div>
+        <div><span class="c"># 2. Run a real loop against the demo client</span></div>
+        <div><span class="g">$</span> python run_loop.py content-engine --client Aurora_Skincare</div>
+        <div>&nbsp;</div>
+        <div><span class="c"># 3. Verify everything — same test CI runs on every push</span></div>
+        <div><span class="g">$</span> python scripts/smoke_test.py</div>
+        <div><span class="n">✔ kernel seeded  ✔ squad roster verified  ✔ all modules import</span></div>
+        <div><span class="n">✔ path-traversal fix still blocking  ✔ full pipeline pass</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">05 / ACCESS</div>
+      <h2>ثلاث طرق لتشغيل «ذا فاوندري».</h2>
+    </div>
+    <div class="tiers">
+      <div class="tier rv">
+        <h3>التوسّع الداخلي</h3>
+        <div class="price">$497<small> / دفعة واحدة</small></div>
+        <ul>
+          <li>النواة كاملة — كل الحلقات، أكثر من 60 وكيلًا، وحزمة الذكاء</li>
+          <li>عملاء بلا حدود داخل وكالتك</li>
+          <li>اسمك على كل مُخرَج (<span class="lat">OPERATOR_NAME</span> قابل للضبط)</li>
+          <li>وصول دائم للمستودع مع التحديثات</li>
+        </ul>
+        <a class="btn btn-gold" href="#lead">اطلب رخصة داخلية</a>
+      </div>
+      <div class="tier feat rv">
+        <div class="flag">من هنا تبدأ معظم الوكالات</div>
+        <h3>رخصة الامتياز</h3>
+        <div class="price">$1,997<small> / دفعة واحدة</small></div>
+        <ul>
+          <li>كل ما في التوسّع الداخلي</li>
+          <li>إعادة بيع الوصول للمستشارين والوكالات كمنظومة «عمل جاهز» بعلامتك</li>
+          <li>حقوق العلامة البيضاء — انزع الأصل، واشحن علامتك</li>
+          <li>مكالمة تأهيل مع المشغّل الأصلي</li>
+        </ul>
+        <a class="btn btn-gold" href="#lead">اطلب رخصة الامتياز</a>
+      </div>
+      <div class="tier rv">
+        <h3>بناء مؤسسي</h3>
+        <div class="price">$50k+<small> / حسب النطاق</small></div>
+        <ul>
+          <li>النواة أساسًا لنشر معماري مخصص</li>
+          <li>يبنيه ويركّبه المشغّل الأصلي</li>
+          <li>حلقات وتكاملات وفرق مصممة خصيصًا</li>
+          <li>خط واتساب مباشر طوال فترة البناء</li>
+        </ul>
+        <a class="btn btn-ghost" href="#lead">احجز مكالمة تحديد نطاق</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="lead">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">06 / CONTACT</div>
+      <h2>اطلب الوصول. المشغّل يرد بنفسه.</h2>
+      <p class="sub">لا فريق مبيعات. لا سلسلة رسائل آلية. رسالتك تصل مباشرة إلى المشغّل الذي بنى النواة.</p>
+    </div>
+    <form class="lead-form hud rv" action="https://formspree.io/f/mzebyeqk" method="POST">
+      <div class="row">
+        <div>
+          <label for="lf-name">الاسم</label>
+          <input id="lf-name" type="text" name="name" required autocomplete="name">
+        </div>
+        <div>
+          <label for="lf-email">البريد الإلكتروني</label>
+          <input id="lf-email" type="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="lf-agency">الوكالة / الشركة</label>
+          <input id="lf-agency" type="text" name="agency" autocomplete="organization">
+        </div>
+        <div>
+          <label for="lf-tier">مهتم بـ</label>
+          <select id="lf-tier" name="tier" required>
+            <option value="" disabled selected>اختر الباقة</option>
+            <option>التوسّع الداخلي — $497</option>
+            <option>رخصة الامتياز — $1,997</option>
+            <option>بناء مؤسسي — $50k+</option>
+            <option>لم أحسم بعد</option>
+          </select>
+        </div>
+      </div>
+      <label for="lf-msg">الرسالة</label>
+      <textarea id="lf-msg" name="message" placeholder="عدد عملائك الحالي، أدواتك، وما أول شيء تريد للنواة أن تقضي عليه."></textarea>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="The Foundry — Lead (AR)">
+      <input type="hidden" name="lang" value="ar">
+      <button class="btn btn-gold" type="submit">أرسِل ←</button>
+    </form>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">07 / INTEL</div>
+      <h2>أجبنا قبل أن تسأل.</h2>
+    </div>
+    <div class="rv">
+      <details><summary>هل أحتاج Claude Code تحديدًا؟</summary><p>لا. أربعة مسارات جاهزة: <span class="lat">Claude Code</span> (يقرأ CLAUDE.md/AGENTS.md مباشرة)، و<span class="lat">Cursor</span> (ملف القواعد موصول سلفًا)، و<span class="lat">ChatGPT</span> (دليل الإعداد مرفق)، أو مفتاح API خام عبر <span class="lat">agent_shim.py</span> دون أي وسيط. اختر ما تدفع ثمنه أصلًا.</p></details>
+      <details><summary>هل بيانات عملائي آمنة عند إضافة عميل حقيقي؟</summary><p>ملف <span class="lat">.env</span> وأسرار كل عميل مستثناة من Git تلقائيًا لكل عميل على حدة — ستحتاج أن تتعمّد الخطأ كي تكشفها. ولا وجود لأي رجوع صامت إلى بيانات اعتماد مشتركة، بقرار تصميمي مقصود.</p></details>
+      <details><summary>هل سيظهر اسم وكالتي أم اسم المشغّل الأصلي؟</summary><p>اسمك. <span class="lat">OPERATOR_NAME</span> يُضبط من الإعدادات — اضبطه مرة واحدة، وكل مُخرَج يتولد باسمك.</p></details>
+      <details><summary>ماذا لو كان لديّ عميل واحد فقط الآن؟</summary><p>لا يهم. البنية متعددة العملاء لا تكلفك شيئًا إضافيًا مع عميل واحد — وهي جاهزة سلفًا حين توقّع عميلك الثاني.</p></details>
+      <details><summary>هل ينشر أو يرسل أي شيء تلقائيًا؟</summary><p>أبدًا. مبدأ الصانع/المراجع تعاقدي في كل حلقة. المسوّدات تُكتب؛ وأنت توافق على كل ما يلمس العالم الخارجي.</p></details>
+      <details><summary>هل توجد بيانات عملاء حقيقية في التوزيعة؟</summary><p>لا. هذه توزيعة منقّاة — بيانات العملاء الخاصة وبيانات الاعتماد الفعلية لا تُضمّن أبدًا في النواة.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center">
+  <div class="wrap rv">
+    <div class="kicker" style="display:inline-block">FINAL DIRECTIVE</div>
+    <h2>ما لا يتوسّع، لا وجود له.</h2>
+    <p class="sub" style="margin:0 auto 36px">أدخل عميلك القادم في دقائق، لا أسابيع. وتحقّق بنفسك قبل أن تدفع قرشًا واحدًا.</p>
+    <a class="btn btn-gold" href="#pricing">احصل على النواة</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span class="lat">© 2026 THE_FOUNDRY</span> — محمد عمر، مهندس النمو</div>
+    <div><a href="https://github.com/mohamedOmar11111/growth-architect-white-label" class="lat">GITHUB</a> · <a href="mailto:mo.omar477@gmail.com">تواصل</a></div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
