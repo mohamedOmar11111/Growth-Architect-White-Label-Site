@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundry — The Multi-Agent Growth Kernel for Agencies</title>
+<meta name="description" content="The ops stack behind a -70k SAR/month deficit turned into +1,000,000 SAR net profit in 12 months. Multi-tenant, vendor-neutral, maker/checker enforced. Plug in a client and go.">
+<meta property="og:title" content="The Foundry — Multi-Agent Growth Kernel">
+<meta property="og:description" content="Stop rebuilding the same agency ops stack for every client. Ad monitoring, lead scoring, content engine — already built, already tested.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* VIBRANT PRISM v3.1 — Noir-Tech / Onyx Hive hybrid */
+  :root{
+    --void:#050505; --panel:rgba(255,255,255,.04); --border:rgba(255,255,255,.08);
+    --gold:#D4AF37; --neon:#00f2ff; --text:#e2e8f0; --dim:#8b93a1;
+    --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--void);color:var(--text);font-family:var(--sans);line-height:1.65;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% -10%,rgba(0,242,255,.07),transparent),
+      radial-gradient(ellipse 50% 40% at 85% 110%,rgba(212,175,55,.06),transparent),
+      linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+    background-size:100% 100%,100% 100%,48px 48px,48px 48px;
+    background-attachment:fixed;
+  }
+  a{color:var(--neon);text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0;position:relative}
+  h1,h2,h3{font-family:var(--mono);line-height:1.15;letter-spacing:.02em}
+  h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px;font-weight:800}
+  .kicker{font-family:var(--mono);color:var(--neon);font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:16px}
+  .kicker::before{content:"// "}
+  .sub{color:var(--dim);font-size:17px;max-width:660px}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent)}
+
+  /* HUD frame corners */
+  .hud{position:relative}
+  .hud::before,.hud::after{content:"";position:absolute;width:14px;height:14px;pointer-events:none}
+  .hud::before{top:-1px;left:-1px;border-top:1px solid var(--neon);border-left:1px solid var(--neon)}
+  .hud::after{bottom:-1px;right:-1px;border-bottom:1px solid var(--neon);border-right:1px solid var(--neon)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.7);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:var(--mono);font-weight:800;font-size:16px;letter-spacing:.12em;color:var(--text)}
+  .logo b{color:var(--gold)}
+  .logo i{font-style:normal;color:var(--neon);animation:blink 1.2s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  nav ul{display:flex;gap:26px;list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  nav ul a{color:var(--dim)}
+  nav ul a:hover{color:var(--neon)}
+  .btn{display:inline-block;padding:14px 30px;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:all .18s;position:relative}
+  .btn-gold{background:var(--gold);color:#000;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px)}
+  .btn-gold:hover{box-shadow:0 0 34px rgba(212,175,55,.45);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--border);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--neon);color:var(--neon);box-shadow:0 0 24px rgba(0,242,255,.18)}
+  nav .btn{padding:9px 18px;font-size:11px}
+
+  /* hero */
+  .hero{padding:120px 0 96px;overflow:hidden}
+  .status-line{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;display:flex;gap:22px;flex-wrap:wrap;margin-bottom:30px}
+  .status-line b{color:var(--neon);font-weight:600}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);margin-right:7px;animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .hero h1{font-size:clamp(34px,5.4vw,58px);font-weight:800;max-width:860px}
+  .hero h1 em{font-style:normal;color:var(--gold);text-shadow:0 0 40px rgba(212,175,55,.35)}
+  .hero p{margin:24px 0 38px}
+  .cta-row{display:flex;gap:16px;flex-wrap:wrap}
+  .proof-strip{margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+  .proof-strip div{background:var(--void);padding:22px 24px}
+  .proof-strip b{display:block;font-family:var(--mono);font-size:24px;color:var(--neon);text-shadow:0 0 24px rgba(0,242,255,.3)}
+  .proof-strip span{font-size:12.5px;color:var(--dim)}
+  .proof-strip .au b{color:var(--gold);text-shadow:0 0 24px rgba(212,175,55,.3)}
+
+  /* cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:44px}
+  .card{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:28px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:rgba(0,242,255,.4);transform:translateY(-3px)}
+  .card h3{font-size:14px;margin-bottom:10px;color:#fff;letter-spacing:.06em}
+  .card h3 .tag{color:var(--gold);font-size:10px;letter-spacing:.14em;margin-left:8px}
+  .card p{font-size:14px;color:var(--dim)}
+  .card .idx{font-family:var(--mono);font-size:10.5px;color:var(--neon);letter-spacing:.2em;display:block;margin-bottom:14px}
+
+  /* terminal */
+  .term{background:rgba(0,0,0,.6);backdrop-filter:blur(20px);border:1px solid var(--border);padding:0;font-family:var(--mono);font-size:13.5px;margin-top:40px;overflow-x:auto}
+  .term-bar{display:flex;align-items:center;gap:8px;padding:12px 18px;border-bottom:1px solid var(--border);font-size:11px;color:var(--dim);letter-spacing:.12em}
+  .term-bar span{width:10px;height:10px;border-radius:50%;background:#2a2a2a}
+  .term-bar span:first-child{background:rgba(212,175,55,.6)}
+  .term-body{padding:22px}
+  .term .c{color:#4a5260}
+  .term .g{color:var(--gold)}
+  .term .n{color:var(--neon)}
+  .term div{white-space:pre;line-height:1.9}
+
+  /* pricing */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:52px}
+  .tier{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:36px 30px;display:flex;flex-direction:column;position:relative}
+  .tier.feat{border-color:rgba(212,175,55,.55);box-shadow:0 0 60px rgba(212,175,55,.08)}
+  .tier.feat .flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-family:var(--mono);font-size:9.5px;font-weight:800;letter-spacing:.16em;padding:4px 14px;white-space:nowrap}
+  .tier h3{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+  .price{font-family:var(--mono);font-size:38px;font-weight:800;color:#fff;margin:16px 0 4px}
+  .price small{font-size:12px;color:var(--dim);font-weight:400;letter-spacing:.08em}
+  .tier ul{list-style:none;margin:24px 0 32px;flex:1}
+  .tier li{font-size:14px;color:var(--text);padding:7px 0 7px 24px;position:relative}
+  .tier li::before{content:">";position:absolute;left:0;color:var(--neon);font-family:var(--mono)}
+  .tier .btn{text-align:center}
+
+  /* faq */
+  details{border:1px solid var(--border);margin-top:12px;background:var(--panel);backdrop-filter:blur(20px)}
+  summary{padding:18px 22px;cursor:pointer;font-weight:600;font-size:15px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--neon);font-family:var(--mono);font-size:17px}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 22px 20px;color:var(--dim);font-size:14px}
+
+  /* lead form */
+  .lead-form{background:var(--panel);backdrop-filter:blur(20px);border:1px solid var(--border);padding:36px;margin-top:44px;max-width:720px}
+  .lead-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .lead-form label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin:18px 0 7px}
+  .lead-form label:first-child{margin-top:0}
+  .lead-form input,.lead-form select,.lead-form textarea{
+    width:100%;background:rgba(0,0,0,.5);border:1px solid var(--border);color:var(--text);
+    font-family:var(--sans);font-size:14.5px;padding:13px 14px;outline:none;transition:border-color .15s,box-shadow .15s
+  }
+  .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{border-color:var(--neon);box-shadow:0 0 18px rgba(0,242,255,.15)}
+  .lead-form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--neon) 50%),linear-gradient(135deg,var(--neon) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+  .lead-form textarea{resize:vertical;min-height:110px}
+  .lead-form button{margin-top:26px;border:none;cursor:pointer;width:100%}
+  @media (max-width:640px){.lead-form .row{grid-template-columns:1fr}}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .5s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.dot,.logo i{animation:none}}
+
+  footer{padding:44px 0;border-top:1px solid var(--border);color:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.06em}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">THE_<b>FOUNDRY</b><i>_</i></div>
+    <ul>
+      <li><a href="#what">System</a></li>
+      <li><a href="#loops">Loops</a></li>
+      <li><a href="#verify">Proof</a></li>
+      <li><a href="#pricing">Access</a></li>
+      <li><a href="#lead">Contact</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn btn-gold" href="#pricing">Get the Kernel</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="status-line">
+      <span><span class="dot"></span>KERNEL: <b>OPERATIONAL</b></span>
+      <span>MODE: <b>MULTI-TENANT</b></span>
+      <span>VENDOR-LOCK: <b>NONE</b></span>
+      <span>AUTO-SEND: <b>DISABLED BY CONTRACT</b></span>
+    </div>
+    <h1>Stop rebuilding the same ops stack for <em>every client</em> you sign.</h1>
+    <p class="sub">Ad monitoring, lead scoring, content drafting, brand-voice enforcement, task tracking — The Foundry is that entire agency stack, already built and already tested. Plug in a client, plug in whichever AI tool you already pay for, go.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#pricing">Get the Kernel</a>
+      <a class="btn btn-ghost" href="#verify">Run the Proof →</a>
+    </div>
+    <div class="proof-strip hud">
+      <div class="au"><b>−70k → +1M SAR</b><span>net monthly result, 12 months, one live account</span></div>
+      <div class="au"><b>+1,400%</b><span>documented turnaround behind this system</span></div>
+      <div><b>5 MIN</b><span>clone → watching a real loop run. zero credentials</span></div>
+      <div><b>0 AUTO-SENDS</b><span>maker/checker contractual in every loop</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<section id="why">
+  <div class="wrap rv">
+    <div class="kicker">01 / Origin</div>
+    <h2>This isn't a framework. It's a battle log, sanitized.</h2>
+    <p class="sub">Built by the operator who took a live ad account from a −70,000 SAR/month deficit to +1,000,000 SAR net profit in 12 months. The Foundry is the actual system behind that result — stripped of client data, packaged so your agency can run it. Marketing is not magic. It is engineering.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="what">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">02 / The System</div>
+      <h2>One kernel. Unlimited clients. No vendor lock.</h2>
+    </div>
+    <div class="grid">
+      <div class="card rv"><span class="idx">SYS.01</span><h3>MULTI-TENANT FROM DAY ONE</h3><p>Every client's credentials, strategy, and history live in their own isolated folder. No risk of one client's data leaking into another's run. Per-tenant .env, gitignored automatically.</p></div>
+      <div class="card rv"><span class="idx">SYS.02</span><h3>NOT LOCKED TO ONE AI VENDOR</h3><p>Claude Code, Cursor, ChatGPT, or a raw Anthropic/OpenAI/Gemini API key with no agent harness at all — all four paths wired up and documented. Switch anytime.</p></div>
+      <div class="card rv"><span class="idx">SYS.03</span><h3>REAL AUTOMATION UNDERNEATH</h3><p>A Python engine handles state, scheduling, live Google Ads pulls, and Telegram alerts. The AI layer only does judgment work. Deterministic things stay deterministic.</p></div>
+      <div class="card rv"><span class="idx">SYS.04</span><h3>NOTHING SHIPS WITHOUT REVIEW</h3><p>Maker/checker built into every loop's contract. Drafts get written — nothing auto-sends, auto-publishes, or auto-commits. You approve everything real.</p></div>
+      <div class="card rv"><span class="idx">SYS.05</span><h3>60+ AGENT DEFINITIONS</h3><p>Marketing, engineering, design, product, testing, support. Full social media squad: cross-platform strategist plus dedicated Twitter/X, LinkedIn, Instagram, TikTok, and Reddit specialists.</p></div>
+      <div class="card rv"><span class="idx">SYS.06</span><h3>INTELLIGENCE SUITE <span class="tag">[PREMIUM]</span></h3><p>Prompt Master (37 credit-killing patterns), Grill-Me adversarial verifier, Humanizer anti-AI-slop engine, Caveman high-efficiency comms standard.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="loops">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">03 / The Engine</div>
+      <h2>Seven loops. Six run today.</h2>
+    </div>
+    <div class="grid">
+      <div class="card rv"><span class="idx">LOOP.AD-INTEL</span><h3>AD-INTEL</h3><p>Live Google Ads monitoring, budget-burn and zero-spend alerts, hands winning ad angles to content-engine automatically — deduped and regression-tested.</p></div>
+      <div class="card rv"><span class="idx">LOOP.META-ADS</span><h3>META-ADS</h3><p>Same monitoring/alerting/handoff pattern for Meta (Facebook/Instagram) Ads.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CONTENT</span><h3>CONTENT-ENGINE</h3><p>Turns ad-intel findings into draft content briefs, grounded in that client's own STRATEGY.md voice rules.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CALENDAR</span><h3>SOCIAL-CALENDAR</h3><p>Decides WHEN and WHERE briefs post. Platform allocation respecting AVOID/PREFER directives, cadence-balanced. A running calendar, not one-off posts.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CREATIVE</span><h3>CREATIVE-BRIEF</h3><p>Turns a finished brief into structured image + video generation prompts. Vendor-neutral — run the prompt through whatever generation tool you already use.</p></div>
+      <div class="card rv"><span class="idx">LOOP.LEADS</span><h3>LEAD-QUALIFY</h3><p>Scores inbound leads on Budget/Intent/Authority, drafts personalized outreach, fires an instant alert on anything HOT.</p></div>
+      <div class="card rv"><span class="idx">LOOP.CHASE</span><h3>COMMAND-CHASE <span class="tag">[CONTRACT DEFINED]</span></h3><p>Cross-channel inbox triage. Domain contract shipped — build your module against it, same pattern as the rest.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="verify">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">04 / Verification</div>
+      <h2>One command proves the whole kernel.</h2>
+      <p class="sub">Runs on first try with zero credentials — ships with a fully worked demo client so you watch a real signal become a real draft brief in your first five minutes. Then run the same self-cleaning smoke test CI runs on every push.</p>
+    </div>
+    <div class="term hud rv">
+      <div class="term-bar"><span></span><span></span><span></span>&nbsp;&nbsp;FOUNDRY://KERNEL — SMOKE TEST</div>
+      <div class="term-body">
+        <div><span class="c"># 1. Initialize the brain</span></div>
+        <div><span class="g">$</span> python scripts/seed_db.py</div>
+        <div>&nbsp;</div>
+        <div><span class="c"># 2. Run a real loop against the demo client</span></div>
+        <div><span class="g">$</span> python run_loop.py content-engine --client Aurora_Skincare</div>
+        <div>&nbsp;</div>
+        <div><span class="c"># 3. Verify everything — same test CI runs on every push</span></div>
+        <div><span class="g">$</span> python scripts/smoke_test.py</div>
+        <div><span class="n">✔ kernel seeded  ✔ squad roster verified  ✔ all modules import</span></div>
+        <div><span class="n">✔ path-traversal fix still blocking  ✔ full pipeline pass</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">05 / Access</div>
+      <h2>Three ways to run The Foundry.</h2>
+    </div>
+    <div class="tiers">
+      <div class="tier rv">
+        <h3>Internal Scale</h3>
+        <div class="price">$497<small> / ONE-TIME</small></div>
+        <ul>
+          <li>Full kernel — all loops, 60+ agents, Intelligence Suite</li>
+          <li>Unlimited clients inside your own agency</li>
+          <li>Your name on every artifact (OPERATOR_NAME config)</li>
+          <li>Lifetime repo access + updates</li>
+        </ul>
+        <a class="btn btn-gold" href="mailto:mo.omar477@gmail.com?subject=The%20Foundry%20—%20Internal%20Scale%20License">Buy Internal License</a>
+      </div>
+      <div class="tier feat rv">
+        <div class="flag">MOST AGENCIES START HERE</div>
+        <h3>Franchise License</h3>
+        <div class="price">$1,997<small> / ONE-TIME</small></div>
+        <ul>
+          <li>Everything in Internal Scale</li>
+          <li>Resell access to consultants &amp; agencies as your own "Business-in-a-Box"</li>
+          <li>White-label rights — strip the origin, ship your brand</li>
+          <li>Onboarding call with the original operator</li>
+        </ul>
+        <a class="btn btn-gold" href="mailto:mo.omar477@gmail.com?subject=The%20Foundry%20—%20Franchise%20License">Buy Franchise License</a>
+      </div>
+      <div class="tier rv">
+        <h3>Enterprise Build</h3>
+        <div class="price">$50k+<small> / CUSTOM</small></div>
+        <ul>
+          <li>The kernel as foundation for a custom architecture deployment</li>
+          <li>Built and installed by the original operator</li>
+          <li>Custom loops, integrations, and squad design</li>
+          <li>Direct WhatsApp line during build</li>
+        </ul>
+        <a class="btn btn-ghost" href="#lead">Book a Scoping Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="lead">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">06 / Contact</div>
+      <h2>Request access. Operator responds directly.</h2>
+      <p class="sub">No sales team. No drip sequence. Your message lands with the operator who built the kernel.</p>
+    </div>
+    <form class="lead-form hud rv" action="https://formspree.io/f/mzebyeqk" method="POST">
+      <div class="row">
+        <div>
+          <label for="lf-name">Name</label>
+          <input id="lf-name" type="text" name="name" required autocomplete="name">
+        </div>
+        <div>
+          <label for="lf-email">Email</label>
+          <input id="lf-email" type="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="lf-agency">Agency / Company</label>
+          <input id="lf-agency" type="text" name="agency" autocomplete="organization">
+        </div>
+        <div>
+          <label for="lf-tier">Interested In</label>
+          <select id="lf-tier" name="tier" required>
+            <option value="" disabled selected>Select tier</option>
+            <option>Internal Scale — $497</option>
+            <option>Franchise License — $1,997</option>
+            <option>Enterprise Build — $50k+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <label for="lf-msg">Message</label>
+      <textarea id="lf-msg" name="message" placeholder="Current client count, stack, what you want the kernel to kill first."></textarea>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="The Foundry — Lead">
+      <button class="btn btn-gold" type="submit">Transmit →</button>
+    </form>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="rv">
+      <div class="kicker">07 / Intel</div>
+      <h2>Asked before you asked.</h2>
+    </div>
+    <div class="rv">
+      <details><summary>Do I need Claude Code specifically?</summary><p>No. Four working paths: Claude Code (reads CLAUDE.md/AGENTS.md natively), Cursor (rules file already wired), ChatGPT (setup doc included), or a raw API key via agent_shim.py with no harness at all. Pick whichever you already pay for.</p></details>
+      <details><summary>Is my client data safe when I add a real client?</summary><p>Each client's .env and secrets are gitignored per-tenant automatically — you'd have to go out of your way to accidentally commit one. No silent fallback to shared credentials, by deliberate design.</p></details>
+      <details><summary>Will this show my agency's name or the original operator's?</summary><p>Yours. OPERATOR_NAME is config-driven — set it once, every generated artifact uses it.</p></details>
+      <details><summary>What if I only have one client right now?</summary><p>Doesn't matter. Multi-tenant structure costs nothing extra at one client — and it's already there when you sign your second.</p></details>
+      <details><summary>Does it auto-post or auto-send anything?</summary><p>Never. Maker/checker is contractual in every loop. Drafts get written; you approve everything that touches the outside world.</p></details>
+      <details><summary>Is real client data included?</summary><p>No. This is a sanitized distribution — proprietary client data and active API credentials are never included in the core kernel.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="text-align:center">
+  <div class="wrap rv">
+    <div class="kicker" style="display:inline-block">Final Directive</div>
+    <h2>If it doesn't scale, it doesn't exist.</h2>
+    <p class="sub" style="margin:0 auto 36px">Onboard your next client in minutes, not weeks. Verify it yourself before you pay a cent.</p>
+    <a class="btn btn-gold" href="#pricing">Get the Kernel</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 THE_FOUNDRY // MOHAMED OMAR — THE GROWTH ARCHITECT</div>
+    <div><a href="https://github.com/mohamedOmar11111/growth-architect-white-label">GITHUB</a> · <a href="mailto:mo.omar477@gmail.com">CONTACT</a></div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
