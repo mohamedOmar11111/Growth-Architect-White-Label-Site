@@ -1,0 +1,46 @@
+# The Foundry
+
+> A white-label multi-agent growth-ops kernel: a deterministic Python automation engine with a swappable AI agent layer (Claude Code, Cursor, ChatGPT, or a raw API key), sold to marketing/growth agencies as a "business-in-a-box." Built from the actual system behind a documented -70,000 SAR/month deficit turned into +1,000,000 SAR net profit in 12 months (+1,400%).
+
+## Site
+
+- [The Foundry — EN](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/): Primary marketing page — origin story, system architecture, 7 automation loops, verification proof, pricing, FAQ, lead form.
+- [The Foundry — AR](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/ar.html): Full Arabic transcreation (RTL, Cairo font) of the same page and offer — not a machine translation.
+
+## Source
+
+- [growth-architect-white-label](https://github.com/mohamedOmar11111/growth-architect-white-label): The kernel source repo — Python engine, loop contracts, agent/skill definitions, smoke test.
+- [Growth-Architect-White-Label-Site](https://github.com/mohamedOmar11111/Growth-Architect-White-Label-Site): This sales/landing page repo.
+
+## What it is
+
+- Not a prompt pack: a working Python engine with its own database and scheduler. Deterministic things (scheduling, Google Ads pulls, alerting) stay deterministic; the AI layer only does judgment work.
+- Multi-tenant from day one: every client's credentials, strategy, and history live in an isolated, per-tenant `.env`-gitignored folder — no cross-client data leakage.
+- Vendor-neutral: four working AI interface paths ship wired and documented — Claude Code, Cursor, ChatGPT, or a raw Anthropic/OpenAI/Gemini API key with no agent harness at all.
+- Maker/checker enforced by contract: drafts get written, nothing auto-sends, auto-publishes, or auto-commits. A human approves everything that touches the outside world.
+- 60+ agent definitions across marketing, engineering, design, product, testing, and support, plus a premium Intelligence Suite (Prompt Master, Grill-Me adversarial verifier, Humanizer anti-AI-slop engine, Caveman comms standard).
+- Verifiable in five minutes with zero credentials: ships with a worked demo client, and a self-cleaning `smoke_test.py` (the same one CI runs on every push) proves the whole kernel with one command.
+
+## Who it's for
+
+Marketing and growth agencies that rebuild the same ops stack — ad monitoring, lead scoring, content drafting, brand-voice enforcement, task tracking — for every new client, and want that stack pre-built, tested, and not locked to one AI vendor.
+
+## Automation loops
+
+- [ad-intel](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Live Google Ads monitoring with budget-burn and zero-spend alerts; hands winning ad angles to content-engine automatically.
+- [meta-ads](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Same monitoring/alerting/handoff pattern as ad-intel, for Meta (Facebook/Instagram) Ads.
+- [content-engine](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Turns ad-intel/meta-ads findings into draft content briefs grounded in the client's own STRATEGY.md voice rules.
+- [social-calendar](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Decides when and where finished briefs post, allocating platforms per AVOID/PREFER rules on a cadence-balanced running calendar.
+- [creative-brief](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Turns a finished brief into structured image + video generation prompts, vendor-neutral for whatever generation tool you use.
+- [lead-qualify](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Scores inbound leads on Budget/Intent/Authority, drafts personalized outreach, and alerts instantly on anything HOT.
+- [command-chase](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#loops): Cross-channel inbox triage — domain contract shipped and defined, not yet wired to the runner; build your own module against it.
+
+## Pricing
+
+- [Internal Scale — $497 one-time](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#pricing): Full kernel, all loops, 60+ agents, Intelligence Suite, unlimited clients inside one agency, lifetime repo access and updates.
+- [Franchise License — $1,997 one-time](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#pricing): Everything in Internal Scale plus resale/white-label rights to other consultants and agencies as a "Business-in-a-Box," and an onboarding call with the original operator. Breaks even against GoHighLevel's $497/mo reseller plan in 4 months, with no recurring platform fee.
+- [Enterprise Build — $50k+ custom](https://mohamedomar11111.github.io/Growth-Architect-White-Label-Site/#pricing): The kernel as foundation for a custom architecture deployment, built and installed by the original operator with custom loops, integrations, and squad design.
+
+## Optional
+
+- [Contact](mailto:mo.omar477@gmail.com): Direct line to the operator, Mohamed Omar — no sales team, no drip sequence.
