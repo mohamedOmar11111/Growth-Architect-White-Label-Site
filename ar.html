@@ -168,8 +168,13 @@
 
   /* requirements */
   .reqs{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+  .req-icon{width:40px;height:40px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--accent)}
   .reqs h3{font-size:17px;margin-bottom:6px}
   .reqs p{color:var(--muted);font-size:16px}
+
+  /* architecture diagram */
+  .arch{margin-top:40px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:32px 24px;text-align:center;direction:ltr}
+  .arch svg{display:block;margin:0 auto;max-width:560px;width:100%;height:auto}
 
   /* pricing */
   .tiers{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:16px;margin-top:44px;align-items:start}
@@ -341,6 +346,18 @@ $ python scripts/smoke_test.py
   <div class="wrap">
     <h2>محرّك ثابت في الأساس، ونموذج قابل للاستبدال فوقه</h2>
     <p class="lede measure">الأجزاء اللي لازم تفضل موثوقة مش بتستدعي أي نموذج ذكاء اصطناعي. لو النموذج أو المزوّد اتغيّر، المحرّك يفضل شغّال.</p>
+    <div class="arch">
+      <svg viewBox="0 0 560 210" aria-hidden="true">
+        <rect x="40" y="14" width="480" height="64" rx="10" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 5"/>
+        <text x="280" y="34" text-anchor="middle" fill="var(--muted)" font-family="var(--mono)" font-size="11" letter-spacing="1">AI LAYER — SWAPPABLE</text>
+        <text x="280" y="58" text-anchor="middle" fill="var(--ink)" font-family="var(--mono)" font-size="12">Claude Code · Cursor · ChatGPT · API key</text>
+        <line x1="280" y1="78" x2="280" y2="118" stroke="var(--accent)" stroke-width="2"/>
+        <polygon points="280,126 274,114 286,114" fill="var(--accent)"/>
+        <rect x="40" y="132" width="480" height="64" rx="10" fill="var(--sunk)" stroke="var(--accent)" stroke-width="1.5"/>
+        <text x="280" y="152" text-anchor="middle" fill="var(--accent-2)" font-family="var(--mono)" font-size="11" letter-spacing="1">ENGINE — PYTHON, DETERMINISTIC</text>
+        <text x="280" y="176" text-anchor="middle" fill="var(--ink)" font-family="var(--mono)" font-size="12">State · Scheduler · Google Ads · Telegram</text>
+      </svg>
+    </div>
     <div class="layers">
       <div class="layer ai">
         <h3>طبقة الذكاء الاصطناعي: اختيارك</h3>
@@ -374,10 +391,10 @@ $ python scripts/smoke_test.py
     <h2>اللي محتاجه علشان تشغّله</h2>
     <p class="lede measure">اقرا ده قبل الشراء. لو مفيش حاجة فيه بتناسب فريقك، البناء المؤسسي هو الباقة المناسبة.</p>
     <div class="reqs">
-      <div><h3>حد يعرف يستخدم الطرفية</h3><p>الإعداد ثلاث خطوات: استنساخ، تهيئة، تشغيل. مفيش برمجة، بس لازم يكون فيه حد مرتاح إنه يشغّل أوامر Python.</p></div>
-      <div><h3>أداة ذكاء اصطناعي بتدفع اشتراكها</h3><p>Claude Code أو Cursor أو ChatGPT أو مفتاح API. المحرّك بيشتغل بنفس الطريقة مع الأربعة.</p></div>
-      <div><h3>وصول API للبيانات الحيّة</h3><p>السحب الحي محتاج رمز مطوّر لـ Google Ads API ووصول لـ Meta لكل حساب. العميل التجريبي مش محتاج أي منهم.</p></div>
-      <div><h3>بوت Telegram للتنبيهات</h3><p>تنبيهات الميزانية والعملاء الساخنين بتوصلك على Telegram. إعداد البوت بياخد دقايق.</p></div>
+      <div><div class="req-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M6 9l3 3-3 3"/><path d="M12 15h6"/></svg></div><h3>حد يعرف يستخدم الطرفية</h3><p>الإعداد ثلاث خطوات: استنساخ، تهيئة، تشغيل. مفيش برمجة، بس لازم يكون فيه حد مرتاح إنه يشغّل أوامر Python.</p></div>
+      <div><div class="req-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div><h3>أداة ذكاء اصطناعي بتدفع اشتراكها</h3><p>Claude Code أو Cursor أو ChatGPT أو مفتاح API. المحرّك بيشتغل بنفس الطريقة مع الأربعة.</p></div>
+      <div><div class="req-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v4M15 3v4M7 7h10l-1 5a4 4 0 01-4 4h0a4 4 0 01-4-4L7 7z"/><path d="M12 16v5"/></svg></div><h3>وصول API للبيانات الحيّة</h3><p>السحب الحي محتاج رمز مطوّر لـ Google Ads API ووصول لـ Meta لكل حساب. العميل التجريبي مش محتاج أي منهم.</p></div>
+      <div><div class="req-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div><h3>بوت Telegram للتنبيهات</h3><p>تنبيهات الميزانية والعملاء الساخنين بتوصلك على Telegram. إعداد البوت بياخد دقايق.</p></div>
     </div>
   </div>
 </section>
