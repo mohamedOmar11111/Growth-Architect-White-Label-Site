@@ -429,7 +429,7 @@ $ python scripts/smoke_test.py
         <a class="btn btn-quiet" href="#lead" data-tier="enterprise" data-value="50000">Book a scoping call</a>
       </div>
     </div>
-    <p class="small anchor">The comparison that matters: building this yourself means 40+ hours on state management, client isolation, scheduling, ad-account polling and approval flows, then finding the bugs that are already fixed here.</p>
+    <p class="small anchor">The comparison that matters: building this yourself isn't a weekend project. It's 400+ hours on state management, concurrent-client isolation, a scheduler that doesn't double-fire, rate-limit-safe polling, and an approval contract nothing can bypass — assuming you finish at all. Then you still find the bugs that are already fixed here.</p>
   </div>
 </section>
 
@@ -447,7 +447,7 @@ $ python scripts/smoke_test.py
       <details><summary>Is any real client data included?</summary><p>No. Client data and API credentials were removed before packaging.</p></details>
       <details><summary>Why pay $497 instead of hiring a developer to build this myself?</summary><p>A developer builds you a version one. This is a version-ninety-plus system that already ran a live ad account for two and a half years — the state bugs, the race conditions, the "what happens when the API times out mid-loop" failures are already found and fixed. You're not buying code, you're buying the mistakes already made. A developer good enough to build this from scratch charges more than $497 for the discovery phase alone.</p></details>
       <details><summary>What happens when Claude, Cursor, or the underlying model changes?</summary><p>Nothing that matters. The Python engine — state, scheduler, Google Ads pulls, Telegram alerts — never calls a model directly. It's deterministic and vendor-agnostic by design. The AI layer is a swappable module, not the foundation: four wired paths today, and a vendor change breaks one of those four, not the kernel.</p></details>
-      <details><summary>I already have Claude Code. Why not build this myself for free?</summary><p>You can. Budget forty-plus hours for state management, multi-tenant isolation, a real scheduler, live ad-account polling, and maker/checker contracts — then budget more time to find the bugs already fixed here. $497 buys back those 40 hours on client #1. Every client after that is the actual margin.</p></details>
+      <details><summary>I already have Claude Code. Why not build this myself for free?</summary><p>You can. First pass looks like a weekend project — then you hit the parts that never show up in a demo: state that survives a crash mid-loop, credential isolation that holds under concurrent clients, a scheduler that doesn't double-fire or silently drop a run, rate-limit backoff that doesn't quietly lose data, and an approval contract nothing can route around. Budget 400+ hours to get there — assuming you get there; plenty of agencies start this build and never ship it. $497 buys you past all of that on client #1. Every client after that is the actual margin.</p></details>
     </div>
   </div>
 </section>
